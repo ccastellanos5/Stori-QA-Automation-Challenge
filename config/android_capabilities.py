@@ -9,8 +9,6 @@ def android_capabilities():
     desired_caps.app_package = 'com.android.chrome'
     desired_caps.app_activity = 'com.google.android.apps.chrome.Main'
     desired_caps.automationName = 'UiAutomator2'
-    desired_caps.noReset = 'true'
     desired_caps.auto_web_view = 'true'
     desired_caps.chromedriver_executable = chromedriver_path
-
     return desired_caps
