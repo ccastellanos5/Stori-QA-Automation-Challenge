@@ -33,3 +33,15 @@ class BasePage:
         element = self.find_element_by_xpath(xpath)
         element_value = self.driver.execute_script("return arguments[0].value;", element)
         return element_value
+
+    def find_text_in_page(self, expected_text, timeout=10):
+        try:
+            elements = WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_all_elements_located((By.TAG_NAME, 'body'))
+            )
+            for element in elements:
+                if expected_text in element.text:
+                    return element.text
+            return None
+        except:
+            return None
