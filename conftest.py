@@ -2,13 +2,10 @@ import time
 from selenium.webdriver.support import expected_conditions as EC
 import pytest
 from appium.webdriver.common.appiumby import AppiumBy
-from pytest_bdd import given
 from selenium.webdriver.support.wait import WebDriverWait
-
 from appium import webdriver
-
 from helpers.get_capabilities import get_capabilities
-from tests.pages.base_page import BasePage
+from tests.steps.test_common_steps import *
 
 
 def pytest_addoption(parser):
@@ -20,7 +17,6 @@ def driver(request):
     env = request.config.getoption("env")
     capabilities = get_capabilities(env)
 
-    # Note: Using desired_capabilities instead of options
     driver = webdriver.Remote('http://localhost:4723', options=capabilities)
 
     if env == 'android':
@@ -46,9 +42,3 @@ def driver(request):
 
     # Teardown
     driver.quit()
-
-@given("I open practice page")
-def open_practice_page(driver):
-    base_page = BasePage(driver)
-    base_page.open_website()
-    base_page.scroll_to_logo()
