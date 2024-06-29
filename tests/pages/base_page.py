@@ -3,12 +3,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from helpers.scripts import SCROLL_SCRIPT
+from tests.selectors.base_selectors import LOGO_XPATH
+
 
 @pytest.mark.usefixtures("driver")
 class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+
+    def open_website(self):
+        self.driver.get('https://rahulshettyacademy.com/AutomationPractice/')
 
     def click_element_by_xpath(self, xpath):
         element = self.find_element_by_xpath(xpath)
@@ -45,3 +51,10 @@ class BasePage:
             return None
         except:
             return None
+
+    def scroll_to_an_element_with_js(self, element):
+        self.driver.execute_script(SCROLL_SCRIPT, element)
+
+    def scroll_to_logo(self):
+        logo = self.find_element_by_xpath(LOGO_XPATH)
+        self.scroll_to_an_element_with_js(logo)

@@ -1,0 +1,1 @@
+LOGO_XPATH = "//img[@src='images/rs_logo.png' and @class='logoClass']"

@@ -1,0 +1,1 @@
+SCROLL_SCRIPT = "arguments[0].scrollIntoView(true);"
