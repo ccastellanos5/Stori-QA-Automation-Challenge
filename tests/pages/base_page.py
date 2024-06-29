@@ -28,3 +28,8 @@ class BasePage:
             EC.visibility_of_element_located((By.XPATH, xpath))
         )
         return element
+
+    def get_value_from_element_by_xpath(self, xpath):
+        element = self.find_element_by_xpath(xpath)
+        element_value = self.driver.execute_script("return arguments[0].value;", element)
+        return element_value

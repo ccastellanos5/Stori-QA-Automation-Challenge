@@ -1,4 +1,4 @@
-Feature: Suggestion Class
+Feature: Suggestion_Class
 
   Scenario: Selecting Mexico from suggestions
     Given I open practice page
