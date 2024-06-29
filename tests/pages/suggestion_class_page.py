@@ -1,8 +1,5 @@
-import time
-
-from selenium.webdriver.common.by import By
 from tests.pages.base_page import BasePage
-from tests.selectors.SuggestionClassSelectors import SUGGESTION_LIST_XPATH, INPUT_XPATH, SUGGESTION_CLASS_TITLE_XPATH
+from tests.selectors.SuggestionClassSelectors import SUGGESTION_LIST_XPATH, INPUT_XPATH
 
 class SuggestionClassPage(BasePage):
     def input_country(self, country):
@@ -20,6 +17,3 @@ class SuggestionClassPage(BasePage):
         input_element = self.find_element_by_xpath(INPUT_XPATH)
         input_value = self.driver.execute_script("return arguments[0].value;", input_element)
         return input_value
-
-    def go_to_suggestion_class_section(self):
-        self.click_element_by_xpath(SUGGESTION_CLASS_TITLE_XPATH)

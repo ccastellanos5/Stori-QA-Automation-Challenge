@@ -3,11 +3,6 @@ from pytest_bdd import scenarios, given, when, then, parsers
 from tests.pages.suggestion_class_page import SuggestionClassPage
 
 scenarios('../features/suggestion_class.feature')
-@given('I move to the Suggestion Class Example page')
-def scroll_until_section(driver):
-    suggestion_class_page = SuggestionClassPage(driver=driver)
-    suggestion_class_page.go_to_suggestion_class_section()
-
 
 @pytest.mark.usefixtures("driver")
 @when(parsers.parse('I enter "{country_prefix}" into the suggestion box'))
