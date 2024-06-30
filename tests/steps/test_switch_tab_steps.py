@@ -1,5 +1,5 @@
 import pytest
-from pytest_bdd import scenarios, when, given, then
+from pytest_bdd import scenarios, when, then
 
 from tests.pages.switch_tab_page import SwitchTabPage
 from tests.selectors.switch_tab_selectors import UPCOMING_EVENT_SECTION
