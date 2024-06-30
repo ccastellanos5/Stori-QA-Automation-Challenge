@@ -4,4 +4,4 @@ Feature: Switch_Window
     Given I open practice page
     When I click the open window button
     Then I should see "30 day money back guarantee" text displayed in the new window
-    And I close the opened window
+    And I go back to the practice page
