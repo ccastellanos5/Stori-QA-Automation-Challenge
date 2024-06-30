@@ -1,5 +1,5 @@
 import pytest
-from pytest_bdd import scenarios, given, when, then, parsers
+from pytest_bdd import scenarios, when, then, parsers
 from tests.pages.dropdown_page import DropdownPage
 
 scenarios('../features/dropdown.feature')

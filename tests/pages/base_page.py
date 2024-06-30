@@ -2,7 +2,6 @@ import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from helpers.scripts import SCROLL_SCRIPT
 from tests.selectors.base_selectors import LOGO_XPATH
 
@@ -16,8 +15,19 @@ class BasePage:
     def open_website(self):
         self.driver.get('https://rahulshettyacademy.com/AutomationPractice/')
 
+    def get_current_window(self):
+        return self.driver.current_window_handle
+
+    def return_to_original_window(self):
+        self.driver.close()
+        self.driver.switch_to.window(self.driver.window_handles[0])
+
     def click_element_by_xpath(self, xpath):
         element = self.find_element_by_xpath(xpath)
+        element.click()
+
+    def click_element_by_css_selector(self, selector):
+        element = self.find_element_by_css_selector(selector)
         element.click()
 
     def enter_value_by_xpath(self, xpath, text):
@@ -32,6 +42,12 @@ class BasePage:
     def find_element_by_xpath(self, xpath, timeout=10):
         element = WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located((By.XPATH, xpath))
+        )
+        return element
+
+    def find_element_by_css_selector(self, selector, timeout=10):
+        element = WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, selector))
         )
         return element
 
@@ -58,3 +74,13 @@ class BasePage:
     def scroll_to_logo(self):
         logo = self.find_element_by_xpath(LOGO_XPATH)
         self.scroll_to_an_element_with_js(logo)
+
+    def redirect_to_new_window(self, number_of_window_expected):
+        WebDriverWait(self.driver, 10).until(
+            EC.number_of_windows_to_be(number_of_window_expected)
+        )
+        new_window = self.driver.window_handles[number_of_window_expected - 1]
+        self.driver.switch_to.window(new_window)
+
+    def take_screenshot_and_save(self, path_file):
+        self.driver.save_screenshot(path_file)
