@@ -112,9 +112,15 @@ Before running the framework, ensure that you have the following installed and c
      export PATH=$PATH:$ANDROID_HOME/tools/bin
      export PATH=$PATH:$ANDROID_HOME/platform-tools
      ```
+4. **Python Virtual Environment**:
+   - Create and activate a virtual environment:
+     ```sh
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
 
-4. **Python Dependencies**:
-   - Install all required Python packages listed in the `requirements.txt` file. You can do this using the following command:
+5. **Python Dependencies**:
+   - Once you activated your virtual environment, install all required Python packages listed in the `requirements.txt` file. You can do this using the following command:
      ```sh
      pip install -r requirements.txt
      ```
