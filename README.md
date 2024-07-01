@@ -1,4 +1,5 @@
-
+# Stori Technical Challenge
+### [Video demo📱](https://www.loom.com/share/f93ce3f5c75d4d42968555c2b05e1653?sid=01736d5f-bf90-4ed6-81c9-70f9b88f57e4)
 
 ## Context of the testing framework
 
