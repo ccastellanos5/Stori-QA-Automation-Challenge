@@ -13,7 +13,6 @@ class DropdownPage(BasePage):
 
     def click_over_dropdown(self):
         self.click_element_by_xpath(DROPDOWN_XPATH)
-        time.sleep(2)
 
     def get_selected_option(self):
         return self.get_value_from_element_by_xpath(DROPDOWN_XPATH)
